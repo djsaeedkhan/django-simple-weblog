@@ -1,0 +1,18 @@
+<html>
+    <header>
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/bootstrap-responsive.min.css"/>
+        <script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    </header>
+
+    <body>
+    {% block content %}{% endblock%}
+    </body>
+
+
+{% load static %}
+<img src="{% static "my_app/example.jpg" %}" alt="My image"/>
+
+</html>
