@@ -9,8 +9,10 @@
 }
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: tahoma, "Times New Roman", Times, serif;
   color: #555;
+  direction: rtl;
+
 }
 
 h1,
@@ -25,7 +27,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "tahoma", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #333;
 }
@@ -37,6 +39,8 @@ h6,
 
 .container {
   max-width: 60rem;
+  text-align: right;
+  direction: rtl;
 }
 
 

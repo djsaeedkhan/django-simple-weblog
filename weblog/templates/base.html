@@ -4,6 +4,7 @@
         <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
         <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap-responsive.min.css' %}"/>
         <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap-rtl.css' %}"/>
         <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     </header>
 <body>
@@ -11,21 +12,21 @@
       <div class="blog-masthead">
         <div class="container">
           <nav class="nav">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">New features</a>
-            <a class="nav-link" href="#">Press</a>
+            <a class="nav-link active" href="/weblog/">صفحه نخست</a>
+            <a class="nav-link" href="/weblog/list">لیست نوشته ها</a>
+            <a class="nav-link" href="/weblog/add">درج نوشته جدید</a>
             <a class="nav-link" href="#">New hires</a>
             <a class="nav-link" href="#">About</a>
           </nav>
         </div>
       </div>
 
-      <div class="blog-header">
+      <!---<div class="blog-header hidden">
         <div class="container">
           <h1 class="blog-title">The Bootstrap Blog</h1>
           <p class="lead blog-description">An example blog template built with Bootstrap.</p>
         </div>
-      </div>
+      </div>-->
     </header>
     <main role="main" class="container">
       <div class="row">
