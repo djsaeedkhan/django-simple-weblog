@@ -4,7 +4,9 @@
 
 {% block content%}
 <div class="col-sm-8 blog-main">
-
+{% if alert|length > 0 %}
+    <div class="alert alert-success">{{ alert }}</div>
+{% endif %}
 <form action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
