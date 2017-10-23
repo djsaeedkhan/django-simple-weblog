@@ -4,11 +4,11 @@
 
 {% block content%}
 <div class="col-sm-8 blog-main">
-  {% for data in datas %}
+  {% for post in posts %}
   <div class="blog-post">
-    <h2 class="blog-post-title">{{data.title}}</h2>
+    <h2 class="blog-post-title"><a href="/weblog/detail/{{post.id}}">{{post.title}}</a></h2>
     <p class="blog-post-meta text-hide">January 1, 2014 by <a href="#">Mark</a></p>
-    <p>{{data.body}}</p>
+    <p>{{post.body}}</p>
   </div><!-- /.blog-post -->
   {% endfor %}
 

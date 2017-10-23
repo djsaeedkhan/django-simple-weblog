@@ -6,8 +6,8 @@ from .forms import PostForm
 from .models import Post
 #-----------------------------
 def index(request):
-    data = Post.objects.all()
-    return render(request,'index.html',{'datas':data})
+    data=Post.objects.filter().order_by('-id')
+    return render(request,'index.html',{'posts':data})
 #------------------------------
 def add(request):
     alert="";
@@ -26,7 +26,8 @@ def add(request):
         form = PostForm()
     return render(request, 'add.html', {'form': form,'alert':alert})
 #------------------------------
+def detail(request):
+    return render(request,'detail.html',)
+#------------------------------
 def list(request):
     return render(request,'list.html',)
-
-#------------------------------
