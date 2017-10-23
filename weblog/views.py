@@ -4,10 +4,11 @@ from django.shortcuts import render
 # Create your views here.
 from .forms import PostForm
 from .models import Post
-
+#-----------------------------
 def index(request):
-    return render(request,'index.html',context=None)
-
+    data = Post.objects.all()
+    return render(request,'index.html',{'datas':data})
+#------------------------------
 def add(request):
     alert="";
     if request.method == 'POST':
@@ -21,10 +22,11 @@ def add(request):
                 alert = "ثبت اطلاعات با موفقیت انجام شد"
             else:
                 alert="متاسفانه ثبت اطلاعات انجام نشد"
-
     else:
         form = PostForm()
     return render(request, 'add.html', {'form': form,'alert':alert})
-
+#------------------------------
 def list(request):
     return render(request,'list.html',)
+
+#------------------------------
