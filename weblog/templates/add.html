@@ -8,8 +8,13 @@
 <form action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Submit" />
+    <input type="submit" value="ثبت نوشته" class="btn btn-primary" />
 </form>
+<style>
+    label {
+    width: 100px;
+}
+</style>
 
 </div><!-- /.blog-main -->
 {% endblock %}
