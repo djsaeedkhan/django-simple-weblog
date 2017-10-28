@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%}ویرایش نوشته{% endblock %}
+
+{% block content%}
+<div class="col-sm-8 blog-main">
+{% if alert|length > 0 %}
+    <div class="alert alert-success">{{ alert }}</div>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="ویرایش نوشته" class="btn btn-primary" />
+</form>
+<style>
+    label {
+    width: 100px;
+}
+</style>
+
+</div><!-- /.blog-main -->
+{% endblock %}

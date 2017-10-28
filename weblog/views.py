@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from .forms import PostForm
@@ -26,8 +26,21 @@ def add(request):
         form = PostForm()
     return render(request, 'add.html', {'form': form,'alert':alert})
 #------------------------------
-def detail(request):
-    return render(request,'detail.html',)
+def update(request,id):
+    alert="";
+    instance = get_object_or_404(Post, id=id)
+    form = PostForm(request.POST or None, instance=instance)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            alert = "ویرایش اطلاعات با موفقیت انجام شد"
+        else:
+            alert="اطلاعات وارد شده صحیح نمی باشد"
+    return render(request, 'update.html', {'form': form,'alert':alert})
+#------------------------------
+def detail(request,id):
+    data=Post.objects.filter(id=id).all()
+    return render(request,'detail.html',{"posts":data})
 #------------------------------
 def list(request):
     return render(request,'list.html',)
