@@ -12,5 +12,9 @@ urlpatterns = [
 
     url(r'update/(?P<id>[0-9]{1})/$', views.update,name='update'),
     url(r'update/(?P<id>[0-9]{2})/$', views.update,name='update'),
+
+    url(r'delete/(?P<id>[0-9]{1})/$', views.delete, name='delete'),
+    url(r'delete/(?P<id>[0-9]{2})/$', views.delete, name='delete'),
+
     url(r'$', views.index, name='index'),
 ]

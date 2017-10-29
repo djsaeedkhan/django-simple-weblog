@@ -6,8 +6,14 @@ from .forms import PostForm
 from .models import Post
 #-----------------------------
 def index(request):
-    data=Post.objects.filter().order_by('-id')
-    return render(request,'index.html',{'posts':data})
+    tag=""
+    if request.method == 'GET' and request.GET.get("title") and  request.GET.get("title")!="":
+        tag = request.GET.get("title")
+        data = Post.objects.filter(title__icontains =tag).order_by('-id')
+    else:
+        data=Post.objects.filter().order_by('-id')
+
+    return render(request,'index.html',{'posts':data,"tag":tag})
 #------------------------------
 def add(request):
     alert="";
@@ -33,6 +39,7 @@ def update(request,id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect("/weblog/detail/"+id+"/")
             alert = "ویرایش اطلاعات با موفقیت انجام شد"
         else:
             alert="اطلاعات وارد شده صحیح نمی باشد"
@@ -41,6 +48,11 @@ def update(request,id):
 def detail(request,id):
     data=Post.objects.filter(id=id).all()
     return render(request,'detail.html',{"posts":data})
+#------------------------------
+def delete(request,id):
+    data=Post.objects.filter(id=id).all()
+    data.delete()
+    return HttpResponseRedirect("/weblog/")
 #------------------------------
 def list(request):
     return render(request,'list.html',)
