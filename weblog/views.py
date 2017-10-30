@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .forms import PostForm
@@ -32,6 +33,7 @@ def add(request):
         form = PostForm()
     return render(request, 'add.html', {'form': form,'alert':alert})
 #------------------------------
+@login_required()
 def update(request,id):
     alert="";
     instance = get_object_or_404(Post, id=id)
@@ -49,6 +51,7 @@ def detail(request,id):
     data=Post.objects.filter(id=id).all()
     return render(request,'detail.html',{"posts":data})
 #------------------------------
+@login_required()
 def delete(request,id):
     data=Post.objects.filter(id=id).all()
     data.delete()
